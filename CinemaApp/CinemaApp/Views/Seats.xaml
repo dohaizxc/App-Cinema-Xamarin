@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaApp.Views.Seats"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             BackgroundColor="#566D7E">
+    <ContentPage.Content>
+        <ScrollView>
+        <Grid RowSpacing="30" Padding="20" x:Name="lstSeats">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Orientation="Horizontal" Margin="0,20" VerticalOptions="Start" Spacing="20">
+                <Image Source="{Binding movie.image}" Aspect="AspectFill" WidthRequest="70" HeightRequest="90"
+                       HorizontalOptions="Start"/>
+                <StackLayout>
+                <Label Text="{Binding movie.movieName}" FontAttributes="Bold" TextColor="White"
+                       FontSize="20"/>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Image Source="icon_calendar.png" Aspect="AspectFill"
+                                               HeightRequest="20" WidthRequest="20"/>
+                    <Label Text="{Binding movie.releaseDate}" FontSize="12" TextColor="White" Padding="0,0,0,0"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="icon_clock.png" Aspect="AspectFill"
+                        HeightRequest="20" WidthRequest="20"/>
+                    <Label Text="{Binding movie.duration}" FontSize="12" TextColor="White" Padding="0,0,0,0"/>
+                    <Label Text="phút" FontSize="16" TextColor="White"/>
+                </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <BoxView BackgroundColor="White" Opacity="0.5" HeightRequest="1" VerticalOptions="End"/>
+                <StackLayout HorizontalOptions="FillAndExpand" Grid.Row="1" Spacing="30">
+                    <Path Stroke="lightblue" Aspect="Fill" StrokeThickness="5" HeightRequest="30"
+                      Data="M0,0S74.587-33.916,148.078-33.916,293.962,0,293.962,0"/>
+
+                <skia:SKCanvasView x:Name="canvasView" HeightRequest="250" WidthRequest="350" HorizontalOptions="Center"
+                                   PaintSurface="canvasView_PaintSurface"/>
+                    
+                    <!--<StackLayout HeightRequest="250" WidthRequest="350">
+                        <CollectionView>
+                            
+                        </CollectionView>
+                    </StackLayout>-->
+
+                    <BoxView BackgroundColor="White" Opacity="0.5" HeightRequest="1" VerticalOptions="Center"/>
+                <StackLayout Orientation="Horizontal" Spacing="30" HorizontalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <Rectangle Fill="red" StrokeThickness="1" HeightRequest="15" WidthRequest="15"
+                                   VerticalOptions="Center"/>
+                        <Label Text="Available" TextColor="White" FontSize="14" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Rectangle Fill="green" StrokeThickness="1" HeightRequest="15" WidthRequest="15"
+                                   VerticalOptions="Center"/>
+                        <Label Text="Rerserved" TextColor="White" FontSize="14" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Rectangle Fill="yellow" StrokeThickness="1" HeightRequest="15" WidthRequest="15"
+                                   VerticalOptions="Center"/>
+                        <Label Text="Your Seats" TextColor="White" FontSize="14" VerticalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <Button Grid.Row="2" Text="Đặt vé" TextColor="White" WidthRequest="220" HeightRequest="40" 
+                    CornerRadius="10" BackgroundColor="DarkBlue" HorizontalOptions="Center" VerticalOptions="End"/>
+
+        </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

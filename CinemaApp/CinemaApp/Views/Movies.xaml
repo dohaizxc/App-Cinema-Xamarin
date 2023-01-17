@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaApp.Views.Movies"
+             Title="Danh sách phim">
+    <ContentPage.Content>
+        <StackLayout>
+            <RefreshView>
+                <ScrollView>
+                    <CollectionView  x:Name="lstMovies" SelectionMode="Single" SelectionChanged="lstMovies_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="10*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame CornerRadius="5"  Padding="0" IsClippedToBounds="True">
+                                        <Image Source="{Binding image}" Aspect="AspectFill" WidthRequest="100" HeightRequest="150" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    </Frame>
+                                    <StackLayout Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center">
+                                        <StackLayout Orientation="Horizontal" Padding="10,0,0,0">
+                                            <Image Source="{Binding ratedImage}" Aspect="AspectFill" VerticalOptions="Center"
+                                               HeightRequest="20" WidthRequest="20"/>
+                                            <Label Text="{Binding name}" FontSize="15" TextColor="Black" VerticalOptions="Center" FontAttributes="Bold" TextTransform="Uppercase"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="10, 0">
+                                            <Image Source="icon_calendar.png" Aspect="AspectFill"
+                                               HeightRequest="20" WidthRequest="20"/>
+                                            <Label Text="{Binding releaseDate}" FontSize="16" TextColor="Black" Padding="0,0,0,2"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Padding="10, 0">
+                                        <Image Source="icon_clock.png" Aspect="AspectFill" VerticalOptions="Center"
+                                               HeightRequest="20" WidthRequest="20"/>
+                                        <Label Text="{Binding duration}" FontSize="16" TextColor="Black" Padding="0,0,0,2"/>
+                                        <Label Text="phút" FontSize="16" TextColor="Black"/>
+                                    </StackLayout>
+                                    </StackLayout>
+                                    <Image Source="icon_right.png" Grid.Column="2" HeightRequest="20" WidthRequest="20" VerticalOptions="Center"></Image>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="Normal"/>
+                                            <VisualState Name="Focused"/>
+                                            <VisualState Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="LightBlue" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+            </RefreshView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

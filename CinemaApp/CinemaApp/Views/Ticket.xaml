@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" xmlns:common="clr-namespace:ZXing.Common;assembly=zxing.portable" xmlns:cinemaapp="clr-namespace:CinemaApp"
+             x:Class="CinemaApp.Views.Ticket"
+             Title="Thông tin vé">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="LightGray">
+                <Grid RowDefinitions="10*,7*,3*" ColumnDefinitions="*"  x:Name="gridMovie">
+                    <Grid RowDefinitions="Auto" ColumnDefinitions="*, 2*" Margin="0,0,0,20" VerticalOptions="Start" Padding="20">
+                        <!--<Frame CornerRadius="5"  Padding="0" Margin="0,0,0,92" IsClippedToBounds="True">
+                            <Image Source="{Binding movieImage}" Aspect="AspectFill" HorizontalOptions="Start" VerticalOptions="Start"/>
+                        </Frame>-->
+                            <Image Source="{Binding movieImage}" Aspect="AspectFill" HorizontalOptions="Start" VerticalOptions="Start"/>
+                        <StackLayout Grid.Column="1" Orientation="Vertical" Margin="10,0,0,10">
+                            <Label Text="{Binding movieName}" FontAttributes="Bold" TextColor="Black"
+                       FontSize="18"/>
+                            <StackLayout Orientation="Horizontal" Spacing="15">
+                                <Image Source="icon_calendar.png" HeightRequest="20" WidthRequest="20" Aspect="AspectFit"/>
+                                <Label Text="{Binding date}" FontSize="14" TextColor="Black"  VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="15">
+                                <Image Source="icon_clock.png" HeightRequest="20" WidthRequest="20" Aspect="AspectFit"/>
+                                <Label Text="{Binding time}" FontSize="14" TextColor="Black" VerticalOptions="Center"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="15">
+                                <Image Source="location_icon.png" HeightRequest="20" WidthRequest="20" Aspect="AspectFit"/>
+                                <Label Text="{Binding cinemaName}" FontSize="14" TextColor="Black" VerticalOptions="Center"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="0">
+                                <Image Source="icon_room2.png" HeightRequest="20" WidthRequest="20"/>
+                                <Label Margin="15, 0, 0, 0" Text="Room " FontSize="14" TextColor="Black" VerticalOptions="Center"/>
+                                <Label Text="{Binding room}" FontSize="14" TextColor="Black" VerticalOptions="Center"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="15">
+                                <Image Source="icon_seat2.png" HeightRequest="20" WidthRequest="20" Aspect="AspectFit"/>
+                                <Label Text="{Binding seat}" FontSize="14" TextColor="Black" VerticalOptions="Center"/>
+                            </StackLayout>
+                            <StackLayout x:Name="haveFood"  Orientation="Horizontal" Spacing="15">
+                                <Image Source="icon_food2.png" HeightRequest="20" WidthRequest="20" Aspect="AspectFit"/>
+                                <Label Text="{Binding foods}" FontSize="14" TextColor="Black" VerticalOptions="Center"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid>
+                    <Line X1="0" Y1="20" X2="400" Y2="20" Stroke="White" StrokeDashArray="3,3"  StrokeLineCap="Round" StrokeThickness="3"
+                          HorizontalOptions="Center" VerticalOptions="End"/>
+                    <StackLayout Grid.Row="1" Spacing="20">
+                        <Grid ColumnDefinitions="*,2*" RowDefinitions="Auto, Auto" Padding="20 , 20, 20, 0">
+                            <StackLayout>
+                                <Frame BackgroundColor="White" CornerRadius="10">
+                                    <StackLayout Padding="-20, -20, -20, 0" HeightRequest="100">
+                                        <forms:ZXingBarcodeImageView BarcodeValue="{Binding id, FallbackValue='0123456789'}" WidthRequest="120" HeightRequest="120">
+                                            <forms:ZXingBarcodeImageView.BarcodeOptions>
+                                                <common:EncodingOptions Height="120" Width="120"/>
+                                            </forms:ZXingBarcodeImageView.BarcodeOptions>
+                                        </forms:ZXingBarcodeImageView>
+                                    </StackLayout>
+                                </Frame>
+                                <Label Text="{Binding id, FallbackValue='0123456789'}" TextColor="Black" HorizontalOptions="Center"
+                                    FontAttributes="Bold"/>
+                            </StackLayout>
+
+                            <StackLayout  Grid.Column="1" Padding="10, 5, 0, 0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Giá vé:" TextColor="Black" FontSize="16"  FontAttributes="Bold" />
+                                    <Label Text="{Binding totalTicket, StringFormat='{0:#,##0} đ'}" TextColor="Black" FontSize="16" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Giá bắp nước:" TextColor="Black" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding totalFood, StringFormat='{0:#,##0} đ'}" TextColor="Black" FontSize="16" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Thanh toán:" TextColor="Black" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding paymentMethod}" TextColor="Black" FontSize="16" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                                <BoxView BackgroundColor="White" HeightRequest="1"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Tổng cộng:" TextColor="Black" FontSize="16" FontAttributes="Bold" />
+                                    <Label Text="{Binding total, StringFormat='{0:#,##0} đ'}" TextColor="Black" FontAttributes="Bold" FontSize="16" HorizontalOptions="EndAndExpand"/>
+                                </StackLayout>
+                            </StackLayout>
+                            <cinemaapp:CustomLabel Grid.Row="1" Grid.ColumnSpan="2" Text="Vui lòng đưa mã vé tới quầy vé tại rạp để nhận vé"
+                                   FontAttributes="Italic" HorizontalOptions="Center" FontSize="16"/>
+                        </Grid>
+                        <Line X1="0" Y1="20" X2="400" Y2="20" Stroke="White" StrokeDashArray="3,3"  StrokeLineCap="Round" StrokeThickness="3"
+                          HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout x:Name="active" Grid.Row="2" IsVisible="true">
+                        <Button x:Name="btnHome" Text="Quay lại Trang chủ" TextColor="White" WidthRequest="220" HeightRequest="40" 
+                                CornerRadius="20" FontAttributes="Bold" BackgroundColor="#0053a0" HorizontalOptions="Center"
+                                Clicked="btnHome_Clicked" VerticalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

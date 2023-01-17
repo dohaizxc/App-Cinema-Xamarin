@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaApp.Views.HistoryTicket"
+             Title="Lịch sử đặt vé"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid RowDefinitions="Auto">
+
+                <StackLayout>
+                    <ActivityIndicator Color="DeepSkyBlue" x:Name="active" IsRunning="true" Margin="20" HeightRequest="30" WidthRequest="30"/>
+                </StackLayout>
+                <Label x:Name="txt_active" Margin="20" Text="Không có dữ liệu" FontSize="20" TextColor="Black"
+                       HorizontalOptions="CenterAndExpand" IsVisible="false"/>
+
+
+                <CollectionView x:Name="cltTickets" SelectionMode="Single" SelectionChanged="cltTickets_SelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="140"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.ColumnSpan="3" Source="bg_ticket2.png"/>
+                                <Frame CornerRadius="5" Margin="30, 30, 0, 30" Padding="0" IsClippedToBounds="True" VerticalOptions="Center">
+                                    <Image Source="{Binding movieImage}" Aspect="AspectFill" WidthRequest="70" HeightRequest="70" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                                <StackLayout Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center">
+                                    <StackLayout Orientation="Horizontal" Padding="10,0,0,0">
+                                        <Image Source="{Binding ratedImage}" Aspect="AspectFill" VerticalOptions="Center"
+                                               HeightRequest="15" WidthRequest="15"/>
+                                        <Label Text="{Binding movieName}" FontSize="12" TextColor="Black" VerticalOptions="Center" FontAttributes="Bold" TextTransform="Uppercase"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="10, 0">
+                                        <Image Source="location_icon.png" Aspect="AspectFill"
+                                               HeightRequest="15" WidthRequest="15"/>
+                                        <Label Text="{Binding cinemaName}" FontSize="12" TextColor="Black" Padding="0,0,0,2"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Padding="10, 0">
+                                        <Image Source="icon_calendar.png" Aspect="AspectFill" VerticalOptions="Center"
+                                               HeightRequest="15" WidthRequest="15"/>
+                                        <Label Text="{Binding date}" FontSize="12" TextColor="Black" Padding="0,0,0,2"/>
+                                    </StackLayout>
+                                    <!--<StackLayout Orientation="Horizontal" Padding="10, 0">
+                                            <Image Source="icon_clock.png" Aspect="AspectFill" VerticalOptions="Center"
+                                               HeightRequest="20" WidthRequest="20"/>
+                                            <Label Text="{Binding time}" FontSize="16" TextColor="Black" Padding="0,0,0,2"/>
+                                        </StackLayout>-->
+                                    <!--<StackLayout Orientation="Horizontal" Padding="10, 0">
+                                            <Image Source="ticket_icon.png" Aspect="AspectFill" VerticalOptions="Center"
+                                               HeightRequest="20" WidthRequest="20"/>
+                                            <Label Text="{Binding id}" FontSize="16" TextColor="Black" Padding="0,0,0,2"/>
+                                        </StackLayout>-->
+                                </StackLayout>
+                                <Image Source="icon_right.png" Grid.Column="2" HeightRequest="20" WidthRequest="20" HorizontalOptions="Start" VerticalOptions="Center"></Image>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal"/>
+                                        <VisualState Name="Focused"/>
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="LightBlue" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

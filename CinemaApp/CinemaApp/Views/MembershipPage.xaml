@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaApp.Views.MembershipPage"
+             Title="Ưu đãi thành viên">
+    <ContentPage.Content>
+        <StackLayout Padding="20, 0">
+            <StackLayout Orientation="Horizontal" Padding="0, 15">
+                <Label Text="Tổng chi tiêu của bạn là " TextColor="Black" FontSize="18"/>
+                <Label x:Name="totalPayment" Text="{Binding ., StringFormat='{0:#,##0} đ'}" FontAttributes="Bold" TextColor="Black" FontSize="18"/>
+            </StackLayout>
+
+            <Grid ColumnDefinitions="*,*,*">
+                <StackLayout>
+                    <Label Text="BẠC"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label   Text="VÀNG" HorizontalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Column="2">
+                    <Label  Text="KIM CƯƠNG" HorizontalOptions="End"/>
+                </StackLayout>
+            </Grid>
+
+            <Slider x:Name="slider" IsEnabled="False" Margin="-15,0"
+                Maximum="10000000"
+                MaximumTrackColor="Black"
+                Minimum="0"
+                MinimumTrackColor="Red"
+                ThumbImageSource="movie_icon.png">
+            </Slider>
+            
+            <Grid ColumnDefinitions="*,*,*">
+                <StackLayout>
+                    <Label Text="0"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1">
+                    <Label   Text="5.000.000" HorizontalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Grid.Column="2">
+                    <Label  Text="10.000.000" HorizontalOptions="End"/>
+                </StackLayout>
+            </Grid>
+
+            <StackLayout Orientation="Horizontal" Padding="0, 15, 0, 0">
+                <Label Text="Hạng thành viên " TextColor="Black" FontSize="18"/>
+                <Label x:Name="rankMember" FontAttributes="Bold" TextColor="Black" FontSize="18"/>
+            </StackLayout>
+            <Label Text="Ưu đãi hạng thành viên" HorizontalOptions="Center" TextColor="Black" FontSize="18" Padding="0, 20"/>
+            <StackLayout>
+                <Grid ColumnDefinitions="*,*, *" RowDefinitions="40">
+                    <Button x:Name="sliver" Text="BẠC" HorizontalOptions="Center"  CornerRadius="20"
+                        BackgroundColor="SkyBlue" Clicked="sliver_Clicked"/>
+                    <Button x:Name="golden" Grid.Column="1" Text="VÀNG" HorizontalOptions="Center" Margin="0" CornerRadius="20"
+                        BackgroundColor="AliceBlue" Clicked="golden_Clicked"/>
+                    <Button x:Name="diamond" Grid.Column="2" Text="KIM CƯƠNG" HorizontalOptions="Center" Margin="0" CornerRadius="20"
+                        BackgroundColor="AliceBlue" Clicked="diamond_Clicked"/>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout>
+                <Grid ColumnDefinitions="*" Margin="10">
+                    <StackLayout x:Name="txt_sliver">
+                        <Image Source="icon_food.png" HeightRequest="40" WidthRequest="40" Aspect="AspectFit"/>
+                        <Label Margin="0,0,0,15" Text="Ưu đãi combo vào tháng sinh nhật" FontSize="15" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Image  Source="ticket_icon.png" HeightRequest="40" WidthRequest="40" Aspect="AspectFit"/>
+                        <Label  Text="Ưu đãi mua 2 tặng 1" FontSize="15" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <StackLayout x:Name="txt_golden" IsVisible="false">
+                        <Image Source="icon_money.png" HeightRequest="40" WidthRequest="40" Aspect="AspectFit"/>
+                        <Label Margin="0,0,0,15" FontSize="15" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Yêu cầu tổng chi tiêu đạt "/>
+                                    <Span Text="5.000.000 đ" FontAttributes="Bold"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Image Source="icon_food.png" HeightRequest="40" WidthRequest="40" Aspect="AspectFit"/>
+                        <Label Margin="0,0,0,15" Text="Ưu đãi combo vào tháng sinh nhật" FontSize="15" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Image  Source="ticket_icon.png" HeightRequest="40" WidthRequest="40" Aspect="AspectFit"/>
+                        <Label  Text="Ưu đãi 5 vé xem phim" FontSize="15" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <StackLayout x:Name="txt_diamond" IsVisible="false">
+                        <Image Source="icon_money.png" HeightRequest="40" WidthRequest="40" Aspect="AspectFit"/>
+                        <Label Margin="0,0,0,15" FontSize="15" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Yêu cầu tổng chi tiêu đạt "/>
+                                    <Span Text="10.000.000 đ" FontAttributes="Bold"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Image Source="icon_food.png" HeightRequest="40" WidthRequest="40" Aspect="AspectFit"/>
+                        <Label Margin="0,0,0,15" Text="Ưu đãi combo vào tháng sinh nhật" FontSize="15" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Image  Source="ticket_icon.png" HeightRequest="40" WidthRequest="40" Aspect="AspectFit"/>
+                        <Label Margin="0,0,0,15" Text="Ưu đãi 10 vé xem phim" FontSize="15" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Image  Source="icon_gift.png" HeightRequest="40" WidthRequest="40" Aspect="AspectFit"/>
+                        <Label  Text="Quà tặng độc quyền" FontSize="15" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

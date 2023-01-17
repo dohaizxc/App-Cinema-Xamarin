@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:CinemaApp.ViewModels" xmlns:cinemaapp="clr-namespace:CinemaApp"
+             x:Class="CinemaApp.Views.SignUp">
+    <ContentPage.Content>
+        <RefreshView IsRefreshing="{Binding IsBusy}" Command="{Binding SignUpCommand}">
+            <StackLayout x:DataType="viewmodels:SignUpViewModel" Padding="20,0" Spacing="20">
+
+                <Label Text="Đăng Ký" FontAttributes="Bold" Margin="0,20,0,0" FontSize="40" TextColor="#1C375C"></Label>
+
+                <cinemaapp:CustomEntry Text="{Binding UserName}" TextColor="#1C375C" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" Placeholder="Nhập tên của bạn"></cinemaapp:CustomEntry>
+
+                <cinemaapp:CustomEntry Text="{Binding Email}" TextColor="#1C375C" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" Placeholder="Nhập email của bạn" Keyboard="Email"/>
+
+
+                <cinemaapp:CustomEntry Text="{Binding PhoneNumber}" TextColor="#1C375C" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" Placeholder="Nhập số điện thoại của bạn" Keyboard="Numeric"/>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                            <Image Source="date_of_birth_icon.png" Aspect="AspectFit" HeightRequest="25" WidthRequest="25"/>
+                            <DatePicker MinimumDate="01/01/1950" MaximumDate="12/31/2010" Date="01/01/2000" WidthRequest="110"/>
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Image Source="gender_icon.png" Aspect="AspectFit" HeightRequest="27" WidthRequest="27"/>
+                        <Picker x:Name="picker" Title="Giới tính" TitleColor="blue" VerticalOptions="EndAndExpand">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Nam</x:String>
+                                    <x:String>Nữ</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </StackLayout>
+                </StackLayout>
+
+                <cinemaapp:CustomEntry Text="{Binding Password}" TextColor="#1C375C" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" IsPassword="True" Placeholder="Nhập mật khẩu"/>
+
+                <cinemaapp:CustomEntry Text="{Binding PasswordAgain}" TextColor="#1C375C" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" IsPassword="True" Placeholder="Nhập lại mật khẩu"/>
+
+
+                <Button x:Name="btnSignUp" CornerRadius="20" Command="{Binding SignUpCommand}"
+                        Margin="100,15" Text="Đăng ký" TextColor="White" BackgroundColor="#1C375C"></Button>
+                <Label HorizontalOptions="Center" Padding="20">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                            Text="Bạn đã có tài khoản? "></Span>
+                            <Span
+                            Text="Đăng nhập ngay" TextDecorations="Underline"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

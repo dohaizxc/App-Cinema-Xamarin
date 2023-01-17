@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:cinemaapp="clr-namespace:CinemaApp" xmlns:ImgCir="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="CinemaApp.Views.EditInfoUser"
+             Title="Chỉnh sửa thông tin">
+    <ContentPage.Content>
+
+        <StackLayout>
+            <ImgCir:CircleImage x:Name="imgAvatar" Margin="15" Aspect="AspectFit" HeightRequest="80"/>
+
+            <Label FontSize="18" TextColor="#1C375C" HorizontalOptions="Center" Text="Avatar" Margin="20, -10"/>
+
+            <CollectionView x:Name="carousel" HeightRequest="50" Margin="20" SelectionMode="Single" SelectionChanged="carousel_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="30" Orientation="Horizontal" ></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="0">
+                            <ImgCir:CircleImage Source="{Binding imageNews}" Aspect="AspectFit" HeightRequest="50"/>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <StackLayout Padding="20,0" Spacing="20" x:Name="infoUser">
+                <cinemaapp:CustomEntry x:Name="entryName" Text="{Binding name}" TextColor="#1C375C" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" Placeholder="Nhập tên của bạn"></cinemaapp:CustomEntry>
+
+            <cinemaapp:CustomEntry Text="{Binding email}" TextColor="#1C375C" HorizontalOptions="FillAndExpand" IsEnabled="False"
+                           VerticalOptions="Center"/>
+
+
+            <cinemaapp:CustomEntry x:Name="entryPhone"  Text="{Binding phoneNumber}" TextColor="#1C375C" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" Placeholder="Nhập số điện thoại của bạn" Keyboard="Numeric"/>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Image Source="date_of_birth_icon.png" Aspect="AspectFit" HeightRequest="25" WidthRequest="25"/>
+                        <DatePicker x:Name="getDate" Format="dd/MM/yyyy"  MinimumDate="01/01/1950" MaximumDate="12/31/2010" Date="01/01/2000" WidthRequest="110"/>
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Image Source="gender_icon.png" Aspect="AspectFit" HeightRequest="27" WidthRequest="27"/>
+                        <Picker x:Name="picker" Title="Giới tính" TitleColor="DeepSkyBlue" VerticalOptions="EndAndExpand">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Nam</x:String>
+                                    <x:String>Nữ</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <Button x:Name="btnEdit" CornerRadius="20"
+                        Margin="100,15" Text="Sửa thông tin" TextColor="White" BackgroundColor="#0053a0" Clicked="btnEdit_Clicked"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

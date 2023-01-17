@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:cinemaapp="clr-namespace:CinemaApp"
+             x:Class="CinemaApp.Views.LogInPage"
+             Title="Đăng nhập">
+    <ContentPage.Content>
+        <StackLayout  Padding="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="20">
+            <Image Source="cinema_icon.png" WidthRequest="100" HeightRequest="100" Aspect="AspectFit"></Image>
+            <Label Text="Xin chào" HorizontalOptions="Center" FontAttributes="Bold" FontSize="40" TextColor="#1C375C"></Label>
+            <Label Text="Đăng nhập để tiếp tục" HorizontalOptions="Center" Margin="0,-20, 0, 0" TextColor="#1C375C"></Label>
+            <cinemaapp:CustomEntry x:Name="entryAccount" TextColor="#1C375C" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" Keyboard="Email" Placeholder="Email"></cinemaapp:CustomEntry>
+            <cinemaapp:CustomEntry x:Name="entryPassword" TextColor="#1C375C" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" IsPassword="True" Placeholder="Mật khẩu"/>
+            <StackLayout Orientation="Horizontal" Padding="10, 0">
+                <CheckBox x:Name="checkbox" Color="DeepSkyBlue" CheckedChanged="checkbox_CheckedChanged"/>
+                <Label Text="Nhớ tài khoản" VerticalOptions="Center" TextColor="#1C375C"/>
+                <Label Text="Quên mật khẩu" HorizontalOptions="EndAndExpand" TextDecorations="Underline" VerticalOptions="Center" TextColor="#1C375C">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="forgetPassword" Tapped="forgetPassword_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <Button x:Name="btnLogin" CornerRadius="20" Clicked="btnLogin_Clicked"
+                        Text="Đăng nhập" TextColor="White" Margin="100,10" BackgroundColor="#0053a0"></Button>
+            <Label HorizontalOptions="Center" Padding="10">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span
+                            Text="Bạn chưa có tài khoản? "></Span>
+                        <Span
+                            Text="Đăng ký " TextDecorations="Underline">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

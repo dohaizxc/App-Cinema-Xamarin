@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ImgCir="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" xmlns:common="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             x:Class="CinemaApp.Views.UserPage"
+             Title="Thông tin người dùng">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="AliceBlue" x:Name="stlUser">
+            <ImgCir:CircleImage x:Name="imgAvatar" Margin="0,15,0,0" Aspect="AspectFit" HeightRequest="80"/>
+            <Label Text="{Binding name, FallbackValue='0123456789'}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                       FontAttributes="Bold" TextColor="Black"  TextTransform="Uppercase" FontSize="20"/>
+            
+            <Frame Padding="0" CornerRadius="10" Margin="25, 0">
+                <Frame.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="LightBlue"
+                          Offset="0.1" />
+                        <GradientStop Color="DeepSkyBlue"
+                          Offset="1.0" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Grid RowDefinitions="150" ColumnDefinitions="*,*,*,*">
+                    <Image Source="bg_member3.png" Grid.Column="0" VerticalOptions="Start"/>
+                    <Image Source="bg_member3.png" Grid.Column="1" VerticalOptions="Start"/>
+                    <Image Source="bg_member3.png" Grid.Column="2" VerticalOptions="Start"/>
+                    <Image Source="bg_member3.png" Grid.Column="3" VerticalOptions="Start"/>
+                    <Image Source="bg_member3.png" Grid.Column="0" VerticalOptions="EndAndExpand"/>
+                    <Image Source="bg_member3.png" Grid.Column="1" VerticalOptions="EndAndExpand"/>
+                    <Image Source="bg_member3.png" Grid.Column="2" VerticalOptions="EndAndExpand"/>
+                    <Image Source="bg_member3.png" Grid.Column="3" VerticalOptions="EndAndExpand"/>
+
+                    <Frame Grid.ColumnSpan="4" BackgroundColor="White" CornerRadius="10" Margin="20" Padding="0, 5">
+                        <StackLayout>
+                            <forms:ZXingBarcodeImageView BarcodeValue="{Binding phoneNumber, FallbackValue='0123456789'}" BarcodeFormat="CODE_128"  WidthRequest="400" HeightRequest="70">
+                                <forms:ZXingBarcodeImageView.BarcodeOptions>
+                                    <common:EncodingOptions Height="70" Width="400"/>
+                                </forms:ZXingBarcodeImageView.BarcodeOptions>
+                            </forms:ZXingBarcodeImageView>
+                            <Label Text="{Binding phoneNumber, FallbackValue='0123456789'}" TextColor="Black" HorizontalOptions="Center" FontAttributes="Bold"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </Frame>
+
+            
+
+
+            <StackLayout Orientation="Horizontal" Margin="20, 10">
+                <Label Text="TỔNG CHI TIÊU" TextColor="Black" FontAttributes="Bold" FontSize="18"/>
+                <Label Text="{Binding total, StringFormat='{0:#,##0} đ'}" TextColor="Black" FontAttributes="Bold" FontSize="18" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+
+            <Slider x:Name="slider"
+                Maximum="10000000"
+                MaximumTrackColor="Black"
+                Minimum="0"
+                MinimumTrackColor="Red"
+                ThumbImageSource="movie_icon.png">
+            </Slider>
+
+            <StackLayout Orientation="Horizontal" Margin="20, 0, 20, 10">
+                <Grid x:Name="gridSlider" ColumnDefinitions="*,*,*">
+                    <StackLayout>
+                        <Label Text="0"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="1">
+                        <Label   Text="5.000.000" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="2">
+                        <Label  Text="10.000.000" HorizontalOptions="End"/>
+                    </StackLayout>
+                </Grid>
+
+            </StackLayout>
+            
+            <StackLayout>
+                <Button x:Name="btnEdit"  Text="Chỉnh sửa thông tin" BackgroundColor="White" VerticalOptions="StartAndExpand" Clicked="btnEdit_Clicked"/>
+                <Button x:Name="btnChangePass"  Text="Đổi mật khẩu" BackgroundColor="White" VerticalOptions="StartAndExpand" Clicked="btnChangePass_Clicked"/>
+                <Button x:Name="btnHistoryTicket"  Text="Lịch sử đặt vé" BackgroundColor="White" VerticalOptions="StartAndExpand" Clicked="btnHistoryTicket_Clicked"/>
+                <Button x:Name="btnMembership" Text="Ưu đãi thành viên" BackgroundColor="White" VerticalOptions="StartAndExpand" Clicked="btnMembership_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

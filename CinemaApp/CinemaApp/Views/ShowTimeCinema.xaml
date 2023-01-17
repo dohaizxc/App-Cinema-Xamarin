@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:CinemaApp.Views" xmlns:viewmodels="clr-namespace:CinemaApp.ViewModels" xmlns:models="clr-namespace:CinemaApp.Models"
+             x:Class="CinemaApp.Views.ShowTimeCinema">
+    <ContentPage.Content>
+        <Grid RowDefinitions="Auto,Auto,Auto"  VerticalOptions="FillAndExpand" Padding="10" RowSpacing="10">
+
+            <Frame CornerRadius="10" BackgroundColor="AliceBlue">
+                <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*,Auto" Margin="-8,0">
+                    <Label x:Name="lblMonthYear" TextColor="Black"
+                           Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand"></Label>
+
+                    <CollectionView x:Name="cvShowtimeCinema" Grid.Row="1" Grid.Column="1" HorizontalOptions="FillAndExpand"
+                        SelectionMode="Single" HeightRequest="60" SelectionChanged="cvShowtimeCinema_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" ></LinearItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid RowDefinitions="Auto,Auto" x:DataType="viewmodels:ShowtimeCinemaViewModel" Padding="10,0">
+                                    <Label Text="{Binding WeekName}"  FontAttributes="Bold" TextColor="Black" HorizontalOptions="Center" />
+                                    <Frame BackgroundColor="{Binding Color}" CornerRadius="60" Padding="10, 8" Margin="0,20, 0, 0">
+                                        <Label Text="{Binding Date}" Grid.Row="1" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black"/>
+                                    </Frame>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="Normal"/>
+                                            <VisualState Name="Focused"/>
+                                            <VisualState Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="AliceBlue" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Frame>
+            <StackLayout Grid.Row="2">
+                <ActivityIndicator Color="DeepSkyBlue" x:Name="active" IsRunning="true"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2">
+                <Label x:Name="txt_active" Text="Không có suất chiếu phù hợp" FontSize="20" TextColor="Black"
+                       HorizontalOptions="CenterAndExpand" IsVisible="false"/>
+            </StackLayout>
+
+            <StackLayout Grid.Row="2">
+                <CollectionView IsGrouped="True" x:Name="cvCinemas" ItemsSource="{Binding _cinemas}" SelectionChanged="cvCinemas_SelectionChanged"
+                    SelectionMode="Single">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Span="5" HorizontalItemSpacing="5" Orientation="Vertical"></GridItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.GroupHeaderTemplate>
+                        <DataTemplate x:DataType="models:CinemaGroup">
+                            <StackLayout Orientation="Horizontal">
+                                <!--<Image x:Name="icon_rated"  Source="{Binding ratedImage}" Aspect="AspectFill" VerticalOptions="Center"
+                                               HeightRequest="20" WidthRequest="20" IsVisible="false"/>-->
+                                <Label Text="{Binding movieID}" TextColor="Black" FontSize="20" Padding="10"></Label>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.GroupHeaderTemplate>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Showtime">
+                            <Grid RowDefinitions="Auto,Auto" x:DataType="models:Showtime" Padding="5,2">
+                                <Frame Grid.Row="1" BackgroundColor="{Binding Color}" BorderColor="Gray" CornerRadius="10" Padding="5">
+                                    <Label Text="{Binding time}" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black"/>
+                                </Frame>
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup Name="CommonStates">
+                                        <VisualState Name="Normal"/>
+                                        <VisualState Name="Focused"/>
+                                        <VisualState Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="White" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    </CollectionView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

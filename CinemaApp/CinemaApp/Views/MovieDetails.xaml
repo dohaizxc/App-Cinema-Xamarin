@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:cinemaapp="clr-namespace:CinemaApp"
+             x:Class="CinemaApp.Views.MovieDetails"
+             Title="Thông tin phim">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+            <Grid x:Name="movieDetailsBinding">
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.ColumnSpan="2" Grid.RowSpan="2">
+                        <WebView VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            Source="{Binding trailer_url}"
+                            WidthRequest="500"
+                            HeightRequest="150"
+                            IsVisible="true"/>
+                    </StackLayout>
+
+                    <Frame Grid.Row="1" Grid.RowSpan="3" CornerRadius="5"  Padding="0" Margin="15,0" IsClippedToBounds="True">
+                        <Image Source="{Binding image}"  Aspect="AspectFill" WidthRequest="100" HeightRequest="150"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+
+
+                    <Frame HasShadow="False"  Grid.Row="1" Grid.Column="1" Margin="-20, 0,0,0" Opacity="0.5" WidthRequest="20">
+                        <Frame.Background>
+                            <!-- StartPoint defaults to (0,0) -->
+                            <LinearGradientBrush EndPoint="0,1">
+                                <GradientStop Color="Gray"
+                          Offset="0.1" />
+                                <GradientStop Color="Black"
+                          Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Frame.Background>
+                    </Frame>
+
+                    <Label Text="{Binding name}" Grid.Row="1" Grid.Column="1" FontAttributes="Bold" TextTransform="Uppercase" TextColor="White"
+                       FontSize="16" VerticalOptions="Center" Margin="-10, 0,-20,0" />
+
+                    <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1" Spacing="20" Margin="0,10">
+
+                        <Frame Padding="10, 5" BorderColor="LightGray" CornerRadius="5">
+                            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                <Image Source="icon_calendar.png" Aspect="AspectFill"
+                                               HeightRequest="15" WidthRequest="15"/>
+                                <Label Text="{Binding releaseDate}" FontSize="14" TextColor="Black"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="10, 5" BorderColor="LightGray" CornerRadius="5">
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="icon_clock.png" Aspect="AspectFill" VerticalOptions="Center"
+                                               HeightRequest="15" WidthRequest="15"/>
+                                <Label Text="{Binding duration}" FontSize="14" TextColor="Black"/>
+                                <Label Text="phút" FontSize="14" TextColor="Black"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+
+                    <Grid ColumnDefinitions="*" Grid.Row="3" Grid.Column="1" RowDefinitions="35" Padding="0, 10, 0, 0">
+                        <Button x:Name="btnBooking" FontSize="15"  Text="Mua vé ngay" FontAttributes="Bold" HorizontalOptions="Center" Padding="30, -4" CornerRadius="20"
+                                   TextColor="White" BackgroundColor="#0053a0" CommandParameter="{Binding .}"
+                                    Clicked="btnBooking_Clicked"></Button>
+                    </Grid>
+
+                
+                    <Label Text="Kiểm duyệt" FontSize="16" TextColor="Black" FontAttributes="Bold"
+                           Grid.Row="5" Padding="20,0,0,0"/>
+                    <Label Text="Thể loại" FontSize="16" TextColor="Black" FontAttributes="Bold"
+                           Grid.Row="6" Padding="20,0,0,0"/>
+                    <Label Text="Đạo diễn" FontSize="16" TextColor="Black" FontAttributes="Bold"
+                           Grid.Row="7" Padding="20,0,0,0"/>
+                    <Label Text="Diễn viên" FontSize="16" TextColor="Black" FontAttributes="Bold"
+                           Grid.Row="8" Padding="20,0,0,0"/>
+                    <Label Text="Ngôn ngữ" FontSize="16" TextColor="Black" FontAttributes="Bold"
+                           Grid.Row="9" Padding="20,0,0,0"/>
+
+                    <Label Text="{Binding rated}" FontSize="16" TextColor="Black" Grid.Column="1"
+                           Grid.Row="5" Padding="0,0,20,0"/>
+                    <Label x:Name="genrelist" Text="{Binding genreConverter}" FontSize="16" TextColor="Black" Grid.Column="1"
+                           Grid.Row="6" Padding="0,0,20,0"/>
+                    <Label Text="{Binding director}" FontSize="16" TextColor="Black" Grid.Column="1"
+                           Grid.Row="7" Padding="0,0,20,0"/>
+                    <Label Text="{Binding actors}" FontSize="16" TextColor="Black" Grid.Column="1"
+                           Grid.Row="8" Padding="0,0,20,0"/>
+                    <Label Text="{Binding language}" FontSize="16" TextColor="Black" Grid.Column="1"
+                           Grid.Row="9" Padding="0,0,20,0"/>
+                    <StackLayout Grid.Row="10" Grid.ColumnSpan="2" BackgroundColor="Red">
+                    </StackLayout>
+                    <cinemaapp:CustomLabel Text="{Binding description}" Grid.ColumnSpan="2" FontSize="16" TextColor="Black"
+                           Grid.Row="11" Padding="20, 0, 20, 20"/>
+                </Grid>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

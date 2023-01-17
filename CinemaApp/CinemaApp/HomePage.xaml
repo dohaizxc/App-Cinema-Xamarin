@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaApp.HomePage"
+             Title="Trang chủ">
+    <ContentPage.Content>
+        <StackLayout>
+            <CarouselView x:Name="carousel" HeightRequest="200" IndicatorView="indicatorView" PeekAreaInsets="90">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="0">
+                            <Image Source="{Binding imageNews}" Aspect="AspectFit"/>
+                        </Frame>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <IndicatorView x:Name="indicatorView" IndicatorColor="LightGray" SelectedIndicatorColor="SkyBlue"
+                           IndicatorSize="5" VerticalOptions="Center">
+
+            </IndicatorView>
+
+            <Grid ColumnDefinitions="*,*" RowDefinitions="40" Margin="10">
+                <Button x:Name="nowShowing" Text="Đang chiếu" Margin="40,0, 20, 0" CornerRadius="20"
+                        BackgroundColor="SkyBlue" Clicked="nowShowing_Clicked"/>
+                <Button x:Name="commingSoon" Grid.Column="1" Text="Sắp chiếu" Margin="20, 0, 40, 2" CornerRadius="20"
+                        BackgroundColor="AliceBlue" Clicked="commingSoon_Clicked"/>
+            </Grid>
+
+            <Grid Margin="0,0,0,10">
+            <CarouselView x:Name="lstMoviesNowShowing" PeekAreaInsets="70" CurrentItemChanged="lstMovies_CurrentItemChanged" VerticalOptions="EndAndExpand">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame Padding="0" BorderColor="#f6f6f6" HasShadow="False">
+                        <Grid Padding="20, 10, 20, 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Frame CornerRadius="5"  Padding="0" IsClippedToBounds="True">
+                                <Image Source="{Binding image}" Aspect="AspectFill" WidthRequest="220" HeightRequest="300" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Frame>
+                                    <Label Text="{Binding stt}" TextColor="White" HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand"
+                                   FontSize="40" Margin="5, 0, 0, 0"/>
+                                    <StackLayout Grid.Row="1" VerticalOptions="Center">
+                                        <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding ratedImage}" Aspect="AspectFill" VerticalOptions="Center"
+                                               HeightRequest="18" WidthRequest="18"/>
+                                                <Label Text="{Binding shortName}" FontSize="15" TextColor="Black" FontAttributes="Bold" TextTransform="Uppercase"/>
+                                </StackLayout>
+
+                                        <StackLayout Orientation="Horizontal">
+                                            
+                                        <Frame Padding="5" BorderColor="LightGray" CornerRadius="5">
+                                            <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                                <Image Source="icon_calendar.png" Aspect="AspectFill"
+                                               HeightRequest="15" WidthRequest="15"/>
+                                                <Label Text="{Binding releaseDate}" FontSize="14" TextColor="Black"/>
+                                            </StackLayout>
+                                        </Frame>
+
+                                            <Frame Padding="5" BorderColor="LightGray" CornerRadius="5" HorizontalOptions="EndAndExpand">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image Source="icon_clock.png" Aspect="AspectFill" VerticalOptions="Center"
+                                               HeightRequest="15" WidthRequest="15"/>
+                                                <Label Text="{Binding duration}" FontSize="14" TextColor="Black"/>
+                                                <Label Text="phút" FontSize="14" TextColor="Black"/>
+                                            </StackLayout>
+                                        </Frame>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="2">
+                                        <Grid ColumnDefinitions="*" RowDefinitions="40" Padding="0, 10, 0, 0">
+                                            <Button x:Name="btnBooking" FontSize="15"  Text="Đặt vé" FontAttributes="Bold" Margin="50, 0, 40, 5" Padding="0, -4" CornerRadius="20"
+                                    TextColor="White" BackgroundColor="#0053a0" CommandParameter="{Binding .}"
+                                    Clicked="btnBooking_Clicked"></Button>
+                                        </Grid>
+                                    </StackLayout>
+
+                                    <Grid.GestureRecognizers>
+                                <TapGestureRecognizer
+                                        Tapped="TapGestureRecognizer_Tapped"
+                                        NumberOfTapsRequired="1">
+                                </TapGestureRecognizer>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                        </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <CarouselView x:Name="lstMoviesCommingSoon" IsVisible="False" PeekAreaInsets="70" CurrentItemChanged="lstMovies_CurrentItemChanged" VerticalOptions="EndAndExpand">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame Padding="0" BorderColor="#f6f6f6" HasShadow="False">
+                                <Grid Padding="20, 10, 20, 0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                        <Frame CornerRadius="5"  Padding="0" IsClippedToBounds="True">
+                                            <Image Source="{Binding image}" Aspect="AspectFill" WidthRequest="220" HeightRequest="300" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        </Frame>
+                                        <StackLayout Grid.Row="1" VerticalOptions="Center">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image Source="{Binding ratedImage}" Aspect="AspectFill" VerticalOptions="Center"
+                                               HeightRequest="18" WidthRequest="18"/>
+                                                <Label Text="{Binding shortName}" FontSize="15" TextColor="Black" FontAttributes="Bold" TextTransform="Uppercase"/>
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Horizontal">
+
+                                                <Frame Padding="5" BorderColor="LightGray" CornerRadius="5">
+                                                    <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+                                                        <Image Source="icon_calendar.png" Aspect="AspectFill"
+                                               HeightRequest="15" WidthRequest="15"/>
+                                                        <Label Text="{Binding releaseDate}" FontSize="14" TextColor="Black"/>
+                                                    </StackLayout>
+                                                </Frame>
+
+                                                <Frame Padding="5" BorderColor="LightGray" CornerRadius="5" HorizontalOptions="EndAndExpand">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Image Source="icon_clock.png" Aspect="AspectFill" VerticalOptions="Center"
+                                               HeightRequest="15" WidthRequest="15"/>
+                                                        <Label Text="{Binding duration}" FontSize="14" TextColor="Black"/>
+                                                        <Label Text="phút" FontSize="14" TextColor="Black"/>
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </StackLayout>
+
+                                        <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                        Tapped="TapGestureRecognizer_Tapped"
+                                        NumberOfTapsRequired="1">
+                                        </TapGestureRecognizer>
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

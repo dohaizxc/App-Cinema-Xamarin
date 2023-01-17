@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:CinemaApp.ViewModels" xmlns:models="clr-namespace:CinemaApp.Models"
+             x:Class="CinemaApp.Views.TimeTemplate">
+    <ContentView.Content>
+        <Grid RowDefinitions="Auto,Auto" x:DataType="models:Cinema" Padding="5,0">
+            <Frame Grid.Row="1" BorderColor="Gray" CornerRadius="10" Padding="5">
+                <Label Text="{Binding cinemaName}" HorizontalOptions="Center" FontAttributes="Bold" TextColor="Black"/>
+            </Frame>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

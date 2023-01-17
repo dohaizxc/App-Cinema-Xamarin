@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:CinemaApp.ViewModels" xmlns:cinemaapp="clr-namespace:CinemaApp"
+             x:Class="CinemaApp.Views.LogIn">
+    <ContentPage.Content>
+        <RefreshView IsRefreshing="{Binding IsBusy}"
+             Command="{Binding LoginCommand}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout x:DataType="viewmodels:LoginViewModel"  Padding="20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="20">
+                <Image Source="cinema_icon.png" WidthRequest="100" HeightRequest="100" Aspect="AspectFit"></Image>
+                    <Label Text="Xin chào" FontAttributes="Bold" FontSize="40" TextColor="#1C375C"></Label>
+                <Label Text="Đăng nhập để tiếp tục" Margin="0,-20, 0, 0" TextColor="#1C375C"></Label>
+                <cinemaapp:CustomEntry Text="{Binding UserName}" TextColor="#1C375C" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" Keyboard="Telephone" Placeholder="Số điện thoại"></cinemaapp:CustomEntry>
+                <cinemaapp:CustomEntry Text="{Binding Password}" TextColor="#1C375C" HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center" IsPassword="True" Placeholder="Mật khẩu"/>
+                <Button x:Name="btnLogin" CornerRadius="20" Command="{Binding LoginCommand}" Clicked="btnLogin_Clicked"
+                        Text="Đăng nhập" TextColor="White" Margin="100,15" BackgroundColor="#1C375C"></Button>
+                <Label HorizontalOptions="Center" Padding="20">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span
+                            Text="Bạn chưa có tài khoản? "></Span>
+                            <Span
+                            Text="Đăng ký " TextDecorations="Underline"></Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

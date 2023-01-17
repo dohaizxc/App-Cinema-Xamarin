@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaApp.Views.Payment"
+             Title="Thanh toán">
+    <ContentPage.Content>
+        <ScrollView>
+        <StackLayout>
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*"  x:Name="gridMovie">
+                    <StackLayout Orientation="Horizontal" Padding="20" VerticalOptions="Start" Spacing="20">
+
+                        <Frame CornerRadius="5"  Padding="0" IsClippedToBounds="True" WidthRequest="70" HeightRequest="90">
+                            <Image Source="{Binding movie.image}" Aspect="AspectFill" WidthRequest="70" HeightRequest="90" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Frame>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding movie.name}" FontAttributes="Bold" TextColor="Black"
+                       FontSize="18"/>
+                            <StackLayout Orientation="Horizontal" Spacing="5">
+                                <Label Text="{Binding datetime}" FontSize="14" TextColor="Black"/>
+                                <Label Text="|" FontSize="14" TextColor="Black"/>
+                                <Label Text="{Binding time}" FontSize="14" TextColor="Black"/>
+                                <Label Text="-" FontSize="14" TextColor="Black"/>
+                                <Label Text="{Binding timeEnd}" FontSize="14" TextColor="Black"/>
+                                <Label Text="|  Room" FontSize="14" TextColor="Black"/>
+                                <Label x:Name="txtRoom" Text="{Binding room}" FontSize="14" TextColor="Black"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="txtPrice" Text="{Binding Price, StringFormat='{0:0,0} đ'}" FontAttributes="Bold" TextColor="Black"
+                       FontSize="20" VerticalOptions="End"/>
+                                <Label x:Name="txtSeat" Text="{Binding ListSeatString}" TextColor="Black"
+                       FontSize="18" VerticalOptions="End"/>
+                                <Label x:Name="txtFood" Text="{Binding ListFoodString}" TextColor="Black"
+                       FontSize="18" VerticalOptions="End"/>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Label Grid.Row="1" BackgroundColor="AliceBlue" Text="Thông tin vé" FontAttributes="Bold" TextColor="Black"
+                       FontSize="18"  TextTransform="Uppercase" Padding="10"/>
+                    <StackLayout Grid.Row="2" Padding="20, 0">
+                        <ListView x:Name="lstSeat" SelectionMode="None" VerticalScrollBarVisibility="Never">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding code}" TextColor="Black" VerticalOptions="Center" FontSize="16"/>
+                                            <Label Text="{Binding price, StringFormat='{0:0,0} đ'}" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+
+                    <Label x:Name="active_foodName" BackgroundColor="AliceBlue" IsVisible="False" Grid.Row="3" Text="Thông tin bắp nước" FontAttributes="Bold" TextColor="Black"
+                       FontSize="18" TextTransform="Uppercase" Padding="10"/>
+                    <StackLayout  x:Name="active_food" Grid.Row="4" IsVisible="False" Padding="20, 0">
+                        <ListView x:Name="lstFood" SelectionMode="None" VerticalScrollBarVisibility="Never">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Image Source="{Binding image}" HeightRequest="30" VerticalOptions="Center"/>
+                                            <Label Text="{Binding foodName}" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
+                                            <Label Text="{Binding quantity, StringFormat='x{0}'}" TextColor="Black" FontSize="16" VerticalOptions="Center"/>
+                                            <Label Text="{Binding price, StringFormat='{0:#,##0} đ'}" TextColor="Black" FontSize="16" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <Label Grid.Row="5" BackgroundColor="AliceBlue" Text="Tổng giá" FontAttributes="Bold" TextColor="Black"
+                       FontSize="18" TextTransform="Uppercase" Padding="10"/>
+                <StackLayout Grid.Row="6" Padding="20, 0" Spacing="10">
+                        <StackLayout x:Name="txt_totalSeat_active" IsVisible="false"  Orientation="Horizontal">
+                            <Label Text="Tổng giá vé" TextColor="Black" VerticalOptions="Center" FontSize="16"/>
+                            <Label x:Name="txt_totalSeat"  Text="{Binding ., StringFormat='{0:0,0} đ'}" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <StackLayout x:Name="txt_totalFood_active" IsVisible="false" Orientation="Horizontal">
+                            <Label Text="Tổng giá bắp nước" TextColor="Black" VerticalOptions="Center" FontSize="16"/>
+                            <Label x:Name="txt_totalFood" Text="{Binding ., StringFormat='{0:0,0} đ'}" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Tổng" TextColor="Black" VerticalOptions="Center" FontSize="16"/>
+                            <Label x:Name="txt_total" Text="{Binding ., StringFormat='{0:0,0} đ'}" TextColor="Black" FontSize="16" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Label Grid.Row="7" BackgroundColor="AliceBlue" Text="Phương thức thanh toán" FontAttributes="Bold" TextColor="Black"
+                       FontSize="18"  TextTransform="Uppercase" Padding="10"/>
+                    <StackLayout Grid.Row="8" Padding="10">
+                        <RadioButton Content="Ví điện tử" x:Name="radioButton1"/>
+                        <RadioButton Content="Thẻ Visa/Master" x:Name="radioButton2"/>
+                    </StackLayout>
+
+                    <StackLayout  Grid.Row="9">
+                        <Button x:Name="btnBooking" Text="Thanh toán" FontAttributes="Bold" TextColor="White" WidthRequest="150" HeightRequest="40" 
+                    CornerRadius="20" BackgroundColor="#0053a0" HorizontalOptions="Center" VerticalOptions="EndAndExpand"
+                            Margin="20" Clicked="btnBooking_Clicked"/>
+                    </StackLayout>
+
+            </Grid>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

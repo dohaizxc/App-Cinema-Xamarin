@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:models="clr-namespace:CinemaApp.Models"
+             x:Class="CinemaApp.Views.Cinemas"
+             xmlns:viewModels="clr-namespace:CinemaApp.ViewModels"
+             x:DataType="viewModels:ProvinceViewModel"
+             Title="Danh sách rạp phim"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+        <CollectionView IsGrouped="True" x:Name="lstCinemas" ItemsSource="{Binding provinces}"
+                        SelectionMode="Single" SelectionChanged="lstProvinces_SelectionChanged">
+            <CollectionView.GroupHeaderTemplate>
+                    <DataTemplate x:DataType="models:Province">
+                        <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding provinceID}" TextColor="Black" FontSize="24" Padding="10"></Label>
+                            <Image Source="{Binding IsVisible}" HeightRequest="20" WidthRequest="20" Margin="0,0,20,0" HorizontalOptions="EndAndExpand"></Image>
+                            <StackLayout.GestureRecognizers Orientation="Horizontal">
+                                <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModels:ProvinceViewModel}},
+                                    Path=HideOrShow}" CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </DataTemplate>
+            </CollectionView.GroupHeaderTemplate>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Cinema">
+                        <StackLayout Padding="10,5">
+                        <Frame Padding="10" BorderColor="Gray" BackgroundColor="{Binding Color}" CornerRadius="10">
+                            <Label Text="{Binding cinemaName}" TextColor="Black" FontSize="20"/>
+                        </Frame>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">
+                                    <VisualState Name="Normal"/>
+                                    <VisualState Name="Focused"/>
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="White" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+        </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

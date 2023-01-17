@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:views="clr-namespace:CinemaApp.Views"
+       x:Class="CinemaApp.MainPage"
+       xmlns:local="clr-namespace:CinemaApp" xmlns:view="clr-namespace:CinemaApp.Views"
+       x:Name="CurrentShell">
+
+    <Shell.FlyoutHeader>
+        <views:Header/>
+    </Shell.FlyoutHeader>
+
+    <!--<Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="20,*" Padding="20,10,0,10" ColumnSpacing="20">
+                <Image Source="{Binding Icon}"
+                       HorizontalOptions="End" VerticalOptions="Center"/>
+                <Label Grid.Column="1"  Text="{Binding Title}" VerticalOptions="Center" FontSize="20" TextColor="Black"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>-->
+    
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" Shell.TabBarIsVisible="False">
+
+
+        <Tab Title="Trang chủ" Icon="home_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}" />
+        </Tab>
+
+
+        <Tab Title="Đặt vé theo phim" Icon="movie.png">
+            <ShellContent Title="Đang Chiếu">
+                <view:Movies>
+                    <x:Arguments>
+                        <x:String>NowShowing</x:String>
+                    </x:Arguments>
+                </view:Movies>
+            </ShellContent>
+            <ShellContent Title="Sắp Chiếu">
+                <view:Movies>
+                    <x:Arguments>
+                        <x:String>CommingSoon</x:String>
+                    </x:Arguments>
+                </view:Movies>
+            </ShellContent>
+        </Tab>
+        <Tab Title="Đặt vé theo rạp" Icon="location_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate views:Cinemas}" />
+        </Tab>
+        <Tab x:Name="userInfo"  Title="Thông tin người dùng" Icon="edit_user_icon.png" IsVisible="False">
+            <ShellContent ContentTemplate="{DataTemplate views:UserPage}" />
+        </Tab>
+        <Tab x:Name="historyBooking" Title="Lịch sử đặt vé" Icon="ticket_icon.png" IsVisible="False">
+            <ShellContent ContentTemplate="{DataTemplate views:HistoryTicket}" />
+        </Tab>
+        <Tab x:Name="logIn" Title="Đăng nhập" Icon="log_in_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate views:LogInPage}" />
+        </Tab>
+        <Tab x:Name="signUp"  Title="Đăng ký" Icon="sign_up_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate views:SignUpPage}" />
+        </Tab>
+
+    </FlyoutItem>
+
+    <MenuItem x:Name="logOut" Text="Đăng Xuất" IconImageSource="exit.png" Clicked="logOut_Clicked"
+              />
+</Shell>

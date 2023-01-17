@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaApp.Views.BookingFood"
+             BackgroundColor="#566D7E">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid RowDefinitions="Auto,Auto,*" x:Name="gridMovie" >
+                <StackLayout Orientation="Horizontal" Padding="20" VerticalOptions="Start" Spacing="20">
+
+                    <Frame CornerRadius="5"  Padding="0" IsClippedToBounds="True" WidthRequest="70" HeightRequest="90">
+                        <Image Source="{Binding movie.image}" Aspect="AspectFill" WidthRequest="70" HeightRequest="90" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Frame>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="{Binding movie.name}" FontAttributes="Bold" TextColor="White"
+                       FontSize="18"/>
+                        <StackLayout Orientation="Horizontal" Spacing="5">
+                            <Label Text="{Binding datetime}" FontSize="14" TextColor="White"/>
+                            <Label Text="|" FontSize="14" TextColor="White"/>
+                            <Label Text="{Binding time}" FontSize="14" TextColor="White"/>
+                            <Label Text="-" FontSize="14" TextColor="White"/>
+                            <Label Text="{Binding timeEnd}" FontSize="14" TextColor="White"/>
+                            <Label Text="| Room" FontSize="14" TextColor="White"/>
+                            <Label x:Name="txtRoom" Text="{Binding room}" FontSize="14" TextColor="White"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="txtPrice" Text="{Binding Price, StringFormat='{0:0,0} đ'}" FontAttributes="Bold" TextColor="White"
+                       FontSize="20" VerticalOptions="End"/>
+                            <Label x:Name="txtSeat" Text="{Binding ListSeatString}" TextColor="White"
+                       FontSize="18" VerticalOptions="End"/>
+                            <Label x:Name="txtFood" Text="{Binding ListFoodString}" TextColor="White"
+                       FontSize="18" VerticalOptions="End"/>
+                        </StackLayout>
+
+                    </StackLayout>
+                </StackLayout>
+                <BoxView BackgroundColor="White" Opacity="0.5" HeightRequest="1" VerticalOptions="End"/>
+
+                <StackLayout HeightRequest="455" Grid.Row="1">
+                    <ListView x:Name="lstFood" RowHeight="135" SelectionMode="None" SeparatorVisibility="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                    <Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="*,4*" Padding="10">
+                                        <Image Grid.RowSpan="3" Source="{Binding image}"/>
+                                        <StackLayout Grid.Column="1"  Orientation="Horizontal">
+                                            <Label Text="{Binding foodName}" TextColor="White" FontSize="16"
+                                       FontAttributes="Bold"/>
+                                            <Label Text=" - " TextColor="White" FontSize="16"
+                                       FontAttributes="Bold"/>
+                                            <Label Text="{Binding price, StringFormat='{0:#,##0} đ'}" TextColor="White" FontSize="16"
+                                       FontAttributes="Bold"/>
+                                        </StackLayout>
+                                        <Label Grid.Column="1" Text="{Binding foodName}" TextColor="White" FontSize="16"
+                                       FontAttributes="Bold"/>
+                                        <Label Grid.Column="1" Grid.Row="1"  Text="{Binding detail}"
+                                       TextColor="White"/>
+                                        <StackLayout Grid.Column="1" Grid.Row="2" Orientation="Horizontal" VerticalOptions="EndAndExpand" Padding="0,0,0,10">
+                                            <Button BackgroundColor="LightBlue" FontSize="16" Padding="0, -6"
+                                            TextColor="Black" Text="-" CornerRadius="15" HeightRequest="30"
+                                            WidthRequest="30" FontAttributes="Bold" x:Name="btnMinus" Clicked="btnMinus_Clicked"
+                                            HorizontalOptions="Center" CommandParameter="{Binding .}"/>
+
+                                            <Label x:Name="txtNumber" Text="{Binding quantity}" TextColor="White" FontSize="16"
+                                            VerticalOptions="Center"/>
+
+                                            <Button BackgroundColor="LightBlue" Padding="0, -6"
+                                            TextColor="Black" Text="+" FontAttributes="Bold" FontSize="16"
+                                            CornerRadius="15" HeightRequest="30" WidthRequest="30"
+                                            x:Name="btnPlus" Clicked="btnPlus_Clicked"
+                                            HorizontalOptions="Center" CommandParameter="{Binding .}"/>
+                                          
+                                        </StackLayout>
+                                        
+                                    </Grid>
+                                    <BoxView BackgroundColor="White" Opacity="0.5" HeightRequest="1" VerticalOptions="End"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout Grid.Row="2" VerticalOptions="End">
+                    <Button x:Name="btnBooking"  Text="Thanh toán" FontAttributes="Bold" TextColor="White" WidthRequest="150" HeightRequest="40" 
+                    CornerRadius="20" BackgroundColor="#0053a0" HorizontalOptions="Center" VerticalOptions="End"
+                    Clicked="btnBooking_Clicked"/>
+                </StackLayout>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

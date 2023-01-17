@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaApp.Views.CinemaDetails">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <CarouselView x:Name="carousel" HeightRequest="166" >
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="0">
+                            <Image Source="{Binding imageNews}" Aspect="AspectFit"/>
+                        </Frame>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <StackLayout Padding="20, 10">
+
+                <Label x:Name="name"  Text="{Binding cinemaName}" FontAttributes="Bold" FontSize="18" TextColor="Black" VerticalOptions="Center"/>
+
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Image Source="location_icon.png" HeightRequest="20" WidthRequest="20" Aspect="AspectFit"/>
+                    <Label x:Name="address"  Text="{Binding address}" FontSize="14" TextColor="Black" VerticalOptions="Center"/>
+                </StackLayout>
+
+                <Label Text="Xem vị trí bản đồ" Padding="35,0" TextColor="Black" TextDecorations="Underline" FontAttributes="Italic" VerticalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="add"  Command="{Binding TapCommand}"
+                        />
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <Grid HeightRequest="40" Padding="0,10">
+                    <Button x:Name="btnBooking" FontSize="15"  Text="Suất chiếu" FontAttributes="Bold" HorizontalOptions="Center" Padding="30, -4" CornerRadius="20"
+                                   TextColor="White" BackgroundColor="#0053a0" Clicked="btnBooking_Clicked"></Button>
+                </Grid>
+            </StackLayout>
+            
+            <StackLayout BackgroundColor="Black">
+                <Grid Padding="1" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" RowSpacing="1" ColumnSpacing="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.ColumnSpan="3" Text="BẢNG GIÁ VÉ" BackgroundColor="LightSkyBlue" TextColor="Black" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Grid.RowSpan="2" Grid.Row="1" Text="Thứ Hai - Thứ Sáu" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="1" Grid.Row="1" Text="Single" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="1" Grid.Row="2" Text="Sweetbox" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="2" Grid.Row="1" Text="100.000 đ" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="2" Grid.Row="2" Text="240.000 đ" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+                    <Label Grid.RowSpan="2" Grid.Row="3" Text="Thứ Bảy - Chủ Nhật" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="1" Grid.Row="3" Text="Single" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="1" Grid.Row="4" Text="Sweetbox" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="2" Grid.Row="3" Text="120.000 đ" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Column="2" Grid.Row="4" Text="280.000 đ" BackgroundColor="White" TextColor="Black" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

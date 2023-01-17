@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CinemaApp.Views.SeatsShowtime"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             BackgroundColor="#566D7E">
+    <ContentPage.Content>
+        <Grid Padding="20" x:Name="infoSeats">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Orientation="Horizontal" Margin="0,0,0,20" VerticalOptions="Start" Spacing="20">
+
+                <Frame CornerRadius="5"  Padding="0" IsClippedToBounds="True" WidthRequest="70" HeightRequest="90">
+                    <Image Source="{Binding movie.image}" Aspect="AspectFill" WidthRequest="70" HeightRequest="90" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Frame>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="{Binding movie.name}" FontAttributes="Bold" TextColor="White"
+                       FontSize="18"/>
+                    <StackLayout Orientation="Horizontal" Spacing="5">
+                        <Label Text="{Binding datetime}" FontSize="14" TextColor="White"/>
+                        <Label Text="|" FontSize="14" TextColor="White"/>
+                        <Label Text="{Binding time}" FontSize="14" TextColor="White"/>
+                        <Label Text="-" FontSize="14" TextColor="White"/>
+                        <Label Text="{Binding timeEnd}" FontSize="14" TextColor="White"/>
+                        <Label Text="| Room" FontSize="14" TextColor="White"/>
+                        <Label x:Name="txtRoom" Text="{Binding room}" FontSize="14" TextColor="White"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label x:Name="txtPrice" Text="{Binding Price, StringFormat='{0:#,##0} đ'}" FontAttributes="Bold" TextColor="White"
+                       FontSize="20" VerticalOptions="End"/>
+                        <Label x:Name="txtSeat" Text="{Binding ListSeatString}" TextColor="White"
+                       FontSize="18" VerticalOptions="End"/>
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+            <BoxView BackgroundColor="White" Opacity="0.5" HeightRequest="1" VerticalOptions="End"/>
+            <StackLayout HorizontalOptions="FillAndExpand" Grid.Row="1" Spacing="15">
+                <Path Stroke="lightblue" Aspect="Fill" StrokeThickness="5" HeightRequest="30"
+                      Data="M0,0S74.587-33.916,148.078-33.916,293.962,0,293.962,0"/>
+
+                <StackLayout HeightRequest="350">
+                    <CollectionView x:Name="lstSeats" SelectionMode="Multiple" SelectionChanged="lstSeats_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="10" HorizontalItemSpacing="1" VerticalItemSpacing="1"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout BackgroundColor="{Binding Available}">
+                                    <Label Text="{Binding code}" HorizontalOptions="Center" Padding="0,7"/>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="Normal"/>
+                                            <VisualState Name="Focused" />
+                                            <VisualState Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="Red" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <BoxView BackgroundColor="White" Opacity="0.5" HeightRequest="1" VerticalOptions="Center"/>
+                <StackLayout Orientation="Horizontal" Spacing="17" HorizontalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <Rectangle Fill="lightblue" StrokeThickness="1" HeightRequest="15" WidthRequest="15"
+                                   VerticalOptions="Center"/>
+                        <Label Text="Single" TextColor="White" FontSize="14" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Rectangle Fill="pink" StrokeThickness="1" HeightRequest="15" WidthRequest="15"
+                                   VerticalOptions="Center"/>
+                        <Label Text="Sweetbox" TextColor="White" FontSize="14" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Rectangle Fill="gray" StrokeThickness="1" HeightRequest="15" WidthRequest="15"
+                                   VerticalOptions="Center"/>
+                        <Label Text="Đã đặt" TextColor="White" FontSize="14" VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Rectangle Fill="red" StrokeThickness="1" HeightRequest="15" WidthRequest="15"
+                                   VerticalOptions="Center"/>
+                        <Label Text="Đang chọn" TextColor="White" FontSize="14" VerticalOptions="Center"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <Button x:Name="btnBooking" Grid.Row="2" Text="Đặt vé" FontAttributes="Bold" TextColor="White" WidthRequest="150" HeightRequest="40" 
+                    CornerRadius="20" BackgroundColor="#0053a0" HorizontalOptions="Center" VerticalOptions="End"
+                    Clicked="btnBooking_Clicked"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
