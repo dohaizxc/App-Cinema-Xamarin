@@ -3,10 +3,10 @@ Công nghệ lập trình đa nền tảng cho ứng dụng di động - IE307.N
 
 ![Diagram](Images/Diagram.png)
 
-![Home Page](Images/Picture1.png)){width=100}
-![Home Page](Images/Picture2.png){width=100}
-![Home Page](Images/Picture3.png){width=100}
-![Home Page](Images/Picture4.png){width=100}
+![Home Page](Images/Picture1.png){:height="50%" width="50%"}
+![Home Page](Images/Picture2.png){:height="50%" width="50%"}
+![Home Page](Images/Picture3.png){:height="50%" width="50%"}
+![Home Page](Images/Picture4.png){:height="50%" width="50%"}
 
 ![Sign Up](Images/SignUpPage.png)
 ![Log In](Images/LogInPage.png)
