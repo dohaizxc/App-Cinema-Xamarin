@@ -4,10 +4,10 @@
 <p><img src="Images/Diagram.png" alt="Diagram" height="600"></p>
 <h2 id="giao-di-n-ng-d-ng-tr-n-android">Giao diện ứng dụng trên Android</h2>
 
-<p float="left"><img src="Images/Picture1.png" alt="Home Page" height="500">
-<img src="Images/Picture2.png" alt="Home Page" height="500">
-<img src="Images/Picture3.png" alt="Home Page" height="500">
-<img src="Images/Picture4.png" alt="Home Page" height="500"></p>
+<p float="left"><img src="Images/Picture1.png" alt="Home Page" height="400">
+<img src="Images/Picture2.png" alt="Home Page" height="400">
+<img src="Images/Picture3.png" alt="Home Page" height="400">
+<img src="Images/Picture4.png" alt="Home Page" height="400"></p>
 
 <p float="left">
 <img src="Images/SignUpPage.png" alt="Sign Up" height="500">
