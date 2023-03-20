@@ -10,60 +10,52 @@
 <img src="Images/Picture4.png" alt="Home Page" height="400"></p>
 
 <p float="left">
-<img src="Images/SignUpPage.png" alt="Sign Up" height="500">
-<img src="Images/LogInPage.png" alt="Log In" height="500">
-<img src="Images/ForgotPasswordPage.png" alt="Forgot Password Page" height="500">
-<img src="Images/ProfilePage.png" alt="Profile Page" height="500">
+<img src="Images/SignUpPage.png" alt="Sign Up" height="400">
+<img src="Images/LogInPage.png" alt="Log In" height="400">
+<img src="Images/ForgotPasswordPage.png" alt="Forgot Password Page" height="400">
+<img src="Images/ProfilePage.png" alt="Profile Page" height="400">
 </p>
 
 <p float="left">
-<img src="Images/UserInfoPage.png" alt="User Info Page" height="500">
-<img src="Images/ChangePasswordPage.png" alt="Change Password Page" height="500">
-<img src="Images/BookingHistoryPage.png" alt="Booking History Page" height="500">
+<img src="Images/UserInfoPage.png" alt="User Info Page" height="400">
+<img src="Images/ChangePasswordPage.png" alt="Change Password Page" height="400">
+<img src="Images/BookingHistoryPage.png" alt="Booking History Page" height="400">
 </p>
 
 <p float="left">
-<img src="Images/MembershipDiamondPage.png" alt="Membership" height="500">
-<img src="Images/MembershipGoldPage.png" alt="Membership" height="500">
-<img src="Images/MembershipSliverPage.png" alt="Membership" height="500">
+<img src="Images/MembershipDiamondPage.png" alt="Membership" height="400">
+<img src="Images/MembershipGoldPage.png" alt="Membership" height="400">
+<img src="Images/MembershipSliverPage.png" alt="Membership" height="400">
 </p>
 
 <p float="left">
-<img src="Images/NowShowingMoviesPage.png" alt="NowShowing Movies Page" height="500">
-<img src="Images/ComingSoonMoviesPage.png" alt="ComingSoon Movies Page" height="500">
-<img src="Images/MovieDetailsPage1.png" alt="Movie Details Page" height="500">
-<img src="Images/MovieDetailsPage2.png" alt="Movie Details Page" height="500">
+<img src="Images/NowShowingMoviesPage.png" alt="NowShowing Movies Page" height="400">
+<img src="Images/ComingSoonMoviesPage.png" alt="ComingSoon Movies Page" height="400">
+<img src="Images/MovieDetailsPage1.png" alt="Movie Details Page" height="400">
+<img src="Images/MovieDetailsPage2.png" alt="Movie Details Page" height="400">
 </p>
 
 <p float="left">
-<img src="Images/CinemaPage1.png" alt="Cinema Page" height="500">
-<img src="Images/CinemaPage2.png" alt="Cinema Page" height="500">
-<img src="Images/CinemaDetailsPage.png" alt="Cinema Details Page" height="500">
-</p>
-
-
-<p float="left">
-
-<img src="Images/ShowtimePage1.png" alt="Showtime Page" height="500">
-<img src="Images/ShowtimePage2.png" alt="Showtime Page" height="500">
-<img src="Images/SelectSeatPage1.png" alt="Select Seat Page" height="500">
-<img src="Images/SelectSeatPage2.png" alt="Select Seat Page" height="500">
-</p>
-
-<p float="left">
-
-<img src="Images/BookingFood1.png" alt="Booking Food" height="500">
-<img src="Images/BookingFood2.png" alt="Booking Food" height="500">
-<img src="Images/Paymen1.png" alt="Payment" height="500">
-<img src="Images/Payment2.png" alt="Payment" height="500">
+<img src="Images/CinemaPage1.png" alt="Cinema Page" height="400">
+<img src="Images/CinemaPage2.png" alt="Cinema Page" height="400">
+<img src="Images/CinemaDetailsPage.png" alt="Cinema Details Page" height="400">
 </p>
 
 
 <p float="left">
-<img src="Images/Ticket.png" alt="Ticket" height="500">
+<img src="Images/ShowtimePage1.png" alt="Showtime Page" height="400">
+<img src="Images/ShowtimePage2.png" alt="Showtime Page" height="400">
+<img src="Images/SelectSeatPage1.png" alt="Select Seat Page" height="400">
+<img src="Images/SelectSeatPage2.png" alt="Select Seat Page" height="400">
 </p>
 
+<p float="left">
+<img src="Images/BookingFood1.png" alt="Booking Food" height="400">
+<img src="Images/BookingFood2.png" alt="Booking Food" height="400">
+<img src="Images/Paymen1.png" alt="Payment" height="400">
+<img src="Images/Payment2.png" alt="Payment" height="400">
+</p>
 
-
-
-
+<p float="left">
+<img src="Images/Ticket.png" alt="Ticket" height="400">
+</p>
