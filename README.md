@@ -1,7 +1,7 @@
 <h1 id="app-cinema-xamarin">App-Cinema-Xamarin</h1>
 <p>Công nghệ lập trình đa nền tảng cho ứng dụng di động - IE307.N11</p>
 <h2 id="s-m-n-h-nh">Sơ đồ màn hình</h2>
-<p><img src="Images/Diagram.png" alt="Diagram" height="600"></p>
+<p><img src="Images/Diagram.png" alt="Diagram" height="500"></p>
 <h2 id="giao-di-n-ng-d-ng-tr-n-android">Giao diện ứng dụng trên Android</h2>
 
 <p float="left"><img src="Images/Picture1.png" alt="Home Page" height="400">
