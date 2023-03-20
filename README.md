@@ -32,6 +32,5 @@ Công nghệ lập trình đa nền tảng cho ứng dụng di động - IE307.N
 ![Booking Food](Images/BookingFood1.png)
 ![Booking Food](Images/BookingFood2.png)
 ![Payment](Images/Paymen1.png)
-![Payment](Images/Paymen2.png)
+![Payment](Images/Payment2.png)
 ![Ticket](Images/Ticket.png)
-![ ](Images/)
