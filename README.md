@@ -1,38 +1,35 @@
-# App-Cinema-Xamarin
-Công nghệ lập trình đa nền tảng cho ứng dụng di động - IE307.N11
-
-## Sơ đồ màn hình
-![Diagram](Images/Diagram.png)
-
-## Giao diện ứng dụng trên Android
-![Home Page](Images/Picture1.png)
-![Home Page](Images/Picture2.png)
-![Home Page](Images/Picture3.png)
-![Home Page](Images/Picture4.png)
-
-![Sign Up](Images/SignUpPage.png)
-![Log In](Images/LogInPage.png)
-![Forgot Password Page](Images/ForgotPasswordPage.png)
-![Profile Page](Images/ProfilePage.png)
-![User Info Page](Images/UserInfoPage.png)
-![Change Password Page](Images/ChangePasswordPage.png)
-![Booking History Page](Images/BookingHistoryPage.png)
-![Membership](Images/MembershipDiamondPage.png)
-![Membership](Images/MembershipGoldPage.png)
-![Membership](Images/MembershipSliverPage.png)
-![NowShowing Movies Page](Images/NowShowingMoviesPage.png)
-![ComingSoon Movies Page](Images/ComingSoonMoviesPage.png)
-![Movie Details Page](Images/MovieDetailsPage1.png)
-![Movie Details Page](Images/MovieDetailsPage2.png)
-![Cinema Page](Images/CinemaPage1.png)
-![Cinema Page](Images/CinemaPage2.png)
-![Cinema Details Page](Images/CinemaDetailsPage.png)
-![Showtime Page](Images/ShowtimePage1.png)
-![Showtime Page](Images/ShowtimePage2.png)
-![Select Seat Page](Images/SelectSeatPage1.png)
-![Select Seat Page](Images/SelectSeatPage2.png)
-![Booking Food](Images/BookingFood1.png)
-![Booking Food](Images/BookingFood2.png)
-![Payment](Images/Paymen1.png)
-![Payment](Images/Payment2.png)
-![Ticket](Images/Ticket.png)
+<h1 id="app-cinema-xamarin">App-Cinema-Xamarin</h1>
+<p>Công nghệ lập trình đa nền tảng cho ứng dụng di động - IE307.N11</p>
+<h2 id="s-m-n-h-nh">Sơ đồ màn hình</h2>
+<p><img src="Images/Diagram.png" alt="Diagram"></p>
+<h2 id="giao-di-n-ng-d-ng-tr-n-android">Giao diện ứng dụng trên Android</h2>
+<p><img src="Images/Picture1.png" alt="Home Page">
+<img src="Images/Picture2.png" alt="Home Page">
+<img src="Images/Picture3.png" alt="Home Page">
+<img src="Images/Picture4.png" alt="Home Page"></p>
+<p><img src="Images/SignUpPage.png" alt="Sign Up">
+<img src="Images/LogInPage.png" alt="Log In">
+<img src="Images/ForgotPasswordPage.png" alt="Forgot Password Page">
+<img src="Images/ProfilePage.png" alt="Profile Page">
+<img src="Images/UserInfoPage.png" alt="User Info Page">
+<img src="Images/ChangePasswordPage.png" alt="Change Password Page">
+<img src="Images/BookingHistoryPage.png" alt="Booking History Page">
+<img src="Images/MembershipDiamondPage.png" alt="Membership">
+<img src="Images/MembershipGoldPage.png" alt="Membership">
+<img src="Images/MembershipSliverPage.png" alt="Membership">
+<img src="Images/NowShowingMoviesPage.png" alt="NowShowing Movies Page">
+<img src="Images/ComingSoonMoviesPage.png" alt="ComingSoon Movies Page">
+<img src="Images/MovieDetailsPage1.png" alt="Movie Details Page">
+<img src="Images/MovieDetailsPage2.png" alt="Movie Details Page">
+<img src="Images/CinemaPage1.png" alt="Cinema Page">
+<img src="Images/CinemaPage2.png" alt="Cinema Page">
+<img src="Images/CinemaDetailsPage.png" alt="Cinema Details Page">
+<img src="Images/ShowtimePage1.png" alt="Showtime Page">
+<img src="Images/ShowtimePage2.png" alt="Showtime Page">
+<img src="Images/SelectSeatPage1.png" alt="Select Seat Page">
+<img src="Images/SelectSeatPage2.png" alt="Select Seat Page">
+<img src="Images/BookingFood1.png" alt="Booking Food">
+<img src="Images/BookingFood2.png" alt="Booking Food">
+<img src="Images/Paymen1.png" alt="Payment">
+<img src="Images/Payment2.png" alt="Payment">
+<img src="Images/Ticket.png" alt="Ticket"></p>
