@@ -3,10 +3,10 @@
 <h2 id="s-m-n-h-nh">Sơ đồ màn hình</h2>
 <p><img src="Images/Diagram.png" alt="Diagram"></p>
 <h2 id="giao-di-n-ng-d-ng-tr-n-android">Giao diện ứng dụng trên Android</h2>
-<p><img src="Images/Picture1.png" alt="Home Page">
-<img src="Images/Picture2.png" alt="Home Page">
-<img src="Images/Picture3.png" alt="Home Page">
-<img src="Images/Picture4.png" alt="Home Page"></p>
+<img src="Images/Picture1.png" alt="Home Page" width="150">
+<img src="Images/Picture2.png" alt="Home Page" width="150">
+<img src="Images/Picture3.png" alt="Home Page" width="150">
+<img src="Images/Picture4.png" alt="Home Page" width="150">
 <p><img src="Images/SignUpPage.png" alt="Sign Up">
 <img src="Images/LogInPage.png" alt="Log In">
 <img src="Images/ForgotPasswordPage.png" alt="Forgot Password Page">
