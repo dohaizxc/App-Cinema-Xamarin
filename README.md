@@ -1,12 +1,14 @@
 # App-Cinema-Xamarin
 Công nghệ lập trình đa nền tảng cho ứng dụng di động - IE307.N11
 
+## Sơ đồ màn hình
 ![Diagram](Images/Diagram.png)
 
-![Home Page](Images/Picture1.png){:height="50%" width="50%"}
-![Home Page](Images/Picture2.png){:height="50%" width="50%"}
-![Home Page](Images/Picture3.png){:height="50%" width="50%"}
-![Home Page](Images/Picture4.png){:height="50%" width="50%"}
+## Giao diện ứng dụng trên Android
+![Home Page](Images/Picture1.png)
+![Home Page](Images/Picture2.png)
+![Home Page](Images/Picture3.png)
+![Home Page](Images/Picture4.png)
 
 ![Sign Up](Images/SignUpPage.png)
 ![Log In](Images/LogInPage.png)
